@@ -1,23 +1,28 @@
 const IMAGES = [
   {
     id   : 1,
-    image: '../public/img/dev/eddieHG.png'
+    image: 'https://i.imgur.com/5EnTxsT.png',
+    name : 'header photo'
   },
   {
     id   : 2,
-    image: '../public/img/dev/holbertonEddie.png'
+    image: 'https://i.imgur.com/Ojgq0Ru.png',
+    name : 'about me photo'
   },
   {
     id   : 3,
-    image: '../public/img/finalHeader.png'
+    image: 'https://i.imgur.com/CdAjztM.png',
+    name : 'final header background'
   },
   {
     id   : 4,
-    image: '../public/img/testimonial.jpg'
+    image: 'https://i.imgur.com/fZZEPbS.jpg',
+    name : 'testimonial photo background'
   },
   {
     id   : 5,
-    image: '../public/img/mail.jpeg'
+    image: 'https://i.imgur.com/xGwXXfv.jpg',
+    name : 'Contact me photo'
   }
 ]
 
