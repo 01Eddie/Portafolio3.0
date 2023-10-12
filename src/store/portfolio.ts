@@ -6,17 +6,6 @@ import { links, portfolioTextsEnglish, portfolioTextsSpanish } from '../model/po
 import { NonFunctionProperties } from '../types'
 import { Post } from '../utils/Request'
 
-// const language = [
-//   {
-//     en: [ ...portfolioTextsEnglish ],
-//     es: [ ...portfolioTextsSpanish ]
-//   }
-// ]
-
-// interface LanguageType {
-//   en: PortfolioType[]
-//   es: PortfolioType[]
-// }
 const sendEmailInit: SendEmailType = {
   mailField: '',
   message  : '',
