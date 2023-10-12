@@ -6,17 +6,19 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { headerStore } from '../../../store/portfolio'
 import Root, { classes } from './styles'
 
-// type Anchor =  'left'
-
 const Header = () => {
   const [ state, setState ] = useState(false)
-  const { portfolio } = useSnapshot(headerStore)
+  const { portfolio, lang } = useSnapshot(headerStore)
 
   const toggleDrawer = (open: boolean) => (event: KeyboardEvent | MouseEvent | SyntheticEvent) => {
     if(event.type === 'keydown' && ((event as KeyboardEvent).key === 'Tab' || (event as KeyboardEvent).key === 'Shift'))
       return
 
     setState(open)
+  }
+
+  const _handleClickClose = () => {
+    setState(false)
   }
 
   useEffect(() => {
@@ -49,7 +51,7 @@ const Header = () => {
             }
           }
         }}>
-        <Typography sx={{ my: 2 }} variant='h6'>
+        <Typography sx={{ ml: 3, my: 2 }} variant='h6'>
           {portfolio[0]?.name}
         </Typography>
         <Divider />
@@ -59,8 +61,18 @@ const Header = () => {
               .filter(filter => filter.id !== 0 && filter.category.includes('options'))
               .map((option) => (
                 <ListItem disablePadding key={option.id}>
-                  <ListItemButton sx={{ textAlign: 'center' }}>
-                    <ListItemText primary={option.name} />
+                  <ListItemButton>
+                    <Link
+                      className={classes.link}
+                      duration={500}
+                      key={option.id}
+                      offset={-20}
+                      onClick={_handleClickClose}
+                      smooth
+                      spy
+                      to={option.name || 'Home'}>
+                      {option.name}
+                    </Link>
                   </ListItemButton>
                 </ListItem>
               ))}
@@ -68,12 +80,14 @@ const Header = () => {
       </Drawer>
 
       <div className={classes.title}>
-        <Typography component='h2' variant='h1'>
+        <Typography
+          component='h2' fontSize='3rem' fontWeight={600}
+          variant='h1'>
           {portfolio[0]?.name}
         </Typography>
       </div>
       <Button onClick={_ChangeLang}>
-        Change Language
+        {lang ? 'Espanol' : 'Ingles'}
       </Button>
       <div className={classes.options}>
         {
@@ -84,7 +98,8 @@ const Header = () => {
                 duration={500}
                 key={option.id}
                 offset={-20}
-                smooth spy to={option.name || 'Home'}>
+                smooth spy
+                to={option.name || 'Home'}>
                 {option.name}
               </Link>
             ))}

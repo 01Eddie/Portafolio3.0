@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSnapshot } from 'valtio'
 import { Button, CardActions, CardContent, CardMedia, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material'
 
@@ -7,7 +8,17 @@ import Root, { classes } from './styles'
 import IMAGES from '../../../images'
 
 const AboutMe = () => {
-  const { aboutMe } = useSnapshot(headerStore)
+  const { aboutMe, links, nameBtns } = useSnapshot(headerStore)
+
+  useEffect(() => {
+    headerStore.setLinks()
+  }, [])
+
+  const _OnClickLinks = (name: string) => () => {
+    // eslint-disable-next-line valtio/state-snapshot-rule
+    const url = links.find(elem => elem.link === name ? elem.url : '')?.url
+    window.open(url, '_blank')
+  }
 
   return (
     <Root elevation={6}>
@@ -39,8 +50,16 @@ const AboutMe = () => {
 
         </CardContent>
         <CardActions className={classes.containerBtn}>
-          <Button className={classes.btnHire} size='large' variant='contained'>Hire Me</Button>
-          <Button className={classes.btnResume} size='large' variant='contained'>Get Resume</Button>
+          <Button
+            className={classes.btnHire}
+            onClick={_OnClickLinks('linkedin')}
+            size='large'
+            variant='contained'>{nameBtns?.name}</Button>
+          <Button
+            className={classes.btnResume}
+            onClick={_OnClickLinks('cv')}
+            size='large'
+            variant='contained'>{nameBtns?.title}</Button>
         </CardActions>
       </div>
     </Root>

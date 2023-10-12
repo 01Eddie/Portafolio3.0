@@ -1,4 +1,4 @@
-FROM node:16.17.0
+FROM node:latest
 WORKDIR /app
 COPY package.json ./
 RUN npm install | export DOCKER_BUILDKIT=0 | export COMPOSE_DOCKER_CLI_BUILD=0

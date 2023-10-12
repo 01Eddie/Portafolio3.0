@@ -12,9 +12,12 @@ export default styled('div', {
   name: PREFIX
 })(({ theme: { spacing } }) => ({
   [`& .${classes.floatBtn}`]: {
+    bottom        : '60px',
     display       : 'flex',
+    height        : spacing(0),
     justifyContent: 'flex-end',
-    margin        : spacing(2, 0)
+    position      : 'relative',
+    right         : spacing(2)
   },
   [`& .${classes.btnResume}`]: {
     borderRadius: 50

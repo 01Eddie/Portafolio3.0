@@ -8,13 +8,18 @@ import IMAGES from '../../../images'
 import { headerStore } from '../../../store/portfolio'
 
 const Home = () => {
-  const { headerContent } = useSnapshot(headerStore)
+  const { headerContent, links, nameBtns } = useSnapshot(headerStore)
 
   useEffect(() => {
     headerStore.setPortfolio()
+    headerStore.setLinks()
   }, [])
 
-  // const headerContent = useMemo(() => portfolio.find(filter => filter.category.includes('headerContent')), [ portfolio ])
+  const _OnClickLinks = (name: string) => () => {
+    // eslint-disable-next-line valtio/state-snapshot-rule
+    const url = links.find(elem => elem.link === name ? elem.url : '')?.url
+    window.open(url, '_blank')
+  }
 
   return (
 
@@ -26,17 +31,11 @@ const Home = () => {
           </Typography>
           <div className={classes.contents}>
             <Typography className={classes.subtitle} color='white' variant='h2'>
-              {/* {headerContent?.technology} */}
               <Typewriter
                 options={{
                   autoStart: true,
                   loop     : true,
-                  strings  : [
-                    'React',
-                    'React Native',
-                    'NodeJS',
-                    'Express'
-                  ]
+                  strings  : headerContent?.technology as string[]
                 }} />
             </Typography>
             <Typography color='white' variant='body1'>
@@ -45,8 +44,16 @@ const Home = () => {
           </div>
         </>
         <div className={classes.containerBtn}>
-          <Button className={classes.btnHire} size='large' variant='outlined'>Hire Me</Button>
-          <Button className={classes.btnResume} size='large' variant='contained'>Get Resume</Button>
+          <Button
+            className={classes.btnHire}
+            onClick={_OnClickLinks('linkedin')}
+            size='large'
+            variant='outlined'>{nameBtns?.name}</Button>
+          <Button
+            className={classes.btnResume}
+            onClick={_OnClickLinks('cv')}
+            size='large'
+            variant='contained'>{nameBtns?.title}</Button>
         </div>
       </div>
       <div className={classes.divImg}>

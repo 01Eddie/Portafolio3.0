@@ -7,7 +7,6 @@ import Projects from './Projects'
 import Interest from './Interest'
 import { useSnapshot } from 'valtio'
 import { headerStore } from '../../../store/portfolio'
-// import { educationStore } from '../../../store/Resume/education'
 
 interface TabPanelProps {
     children?: ReactNode;
@@ -24,6 +23,7 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       role='tabpanel'
+      style={{ maxWidth: '50%', overflow: 'auto' }}
       {...other}>
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -43,11 +43,6 @@ const Resume = () => {
   const { resume } = useSnapshot(headerStore)
   const [ value, setValue ] = useState(0)
 
-  // useEffect(() => {
-  //   // Education
-  //   educationStore.setEducation()
-  // }, [])
-
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue)
   }
@@ -66,18 +61,10 @@ const Resume = () => {
         { resume?.details?.map(det => (
           <Tab key={det.idD} label={det.name} {...a11yProps(det.idD)} />)
         )}
-        {/* <Tab label='Work History' {...a11yProps(1)} />
-        <Tab label='Programming Skills' {...a11yProps(2)} />
-        <Tab label='Projects' {...a11yProps(3)} />
-        <Tab label='Interest' {...a11yProps(4)} /> */}
       </Tabs>
-      {/* {
-        resume?.details?.map((de, index) => ( */}
       <TabPanel index={0} value={value}>
         <Education />
       </TabPanel>
-      {/* ))
-       } */}
       <TabPanel index={1} value={value}>
         <WorkHistory />
       </TabPanel>

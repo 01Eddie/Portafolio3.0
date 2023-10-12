@@ -6,13 +6,14 @@ import AboutMe from './AboutMe'
 import ContactMe from './ContactMe'
 import HeaderTitle from './HeaderTitle'
 import Resume from './Resume'
-import Testimonial from './Testimonial'
+// import Testimonial from './Testimonial'
+import FooterMe from './FooterMe'
 
 import Root, { classes } from './styles'
 import { Link } from 'react-scroll'
 
 const About = () => {
-  const { aboutMe, resume, testimonial } = useSnapshot(headerStore)
+  const { aboutMe, resume, contact, footer } = useSnapshot(headerStore)
 
   return (
     <Root>
@@ -26,16 +27,21 @@ const About = () => {
         id={String(resume?.title)}
         title={resume?.title} />
       <Resume />
-      <HeaderTitle
+      {/* <HeaderTitle
         description={testimonial?.subtitle}
         id={String(testimonial?.title)}
-        title={testimonial?.title} />
-      <Testimonial />
+        title={testimonial?.title} /> */}
+      {/* <Testimonial /> */}
       <HeaderTitle
-        description='Lets Keep In Touch'
-        id={'Contact me' ?? 'Contactame'}
-        title={'Contact Me'} />
+        description={contact?.subtitle}
+        id={String(contact?.title)}
+        title={contact?.title} />
       <ContactMe />
+      <HeaderTitle
+        description={footer?.subtitle}
+        id={String(footer?.title)}
+        title={footer?.title} />
+      <FooterMe />
       <Link
         className={classes.floatBtn}
         duration={500}

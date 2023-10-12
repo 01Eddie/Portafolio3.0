@@ -1,11 +1,11 @@
 const IMAGES = [
   {
     id   : 1,
-    image: '../public/img/eddieHG.jpeg'
+    image: '../public/img/dev/eddieHG.png'
   },
   {
     id   : 2,
-    image: '../public/img/holbertonEddie.jpeg'
+    image: '../public/img/dev/holbertonEddie.png'
   },
   {
     id   : 3,

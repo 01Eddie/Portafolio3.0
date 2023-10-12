@@ -15,6 +15,7 @@ export default styled('div', {
   alignItems             : 'center',
   display                : 'flex',
   justifyContent         : 'space-around',
+  paddingTop             : spacing(2),
   [`& .${classes.title}`]: {
     color: palette.grey[100]
   },
@@ -27,6 +28,7 @@ export default styled('div', {
       color: palette.primary.main
     },
     color : palette.grey[100],
+    cursor: 'pointer',
     margin: spacing(0, 1.25)
   },
   [`& .${classes.menuHmb}`]: {
