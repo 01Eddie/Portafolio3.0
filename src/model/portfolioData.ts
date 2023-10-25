@@ -236,24 +236,30 @@ export const portfolioTextsEnglish: PortfolioType[] = [
         detail: [
           {
             idDD : 0,
+            name : 'Project Ecommerce',
+            named: 'react js, next js, stripe, mongodb, tailwind',
+            time : 'https://ecommerce-next-js-opal.vercel.app'
+          },
+          {
+            idDD : 1,
             name : 'Emulator Terminal',
             named: 'C',
             time : 'https://github.com/01Eddie/simple_shell.git'
           },
           {
-            idDD : 1,
+            idDD : 2,
             name : 'AirBnb clone',
             named: 'python, html, css',
             time : 'https://github.com/01Eddie/AirBnB_clone_v3.git'
           },
           {
-            idDD : 2,
+            idDD : 3,
             name : 'NotiNews',
             named: 'php, html, css',
             time : 'https://github.com/01Eddie/PHP_Notinews.git'
           },
           {
-            idDD : 3,
+            idDD : 4,
             name : 'Checker challenge(Bot discord)',
             named: 'python',
             time : 'https://github.com/AlexisCORAN/Checker_Challenge'
@@ -555,24 +561,30 @@ export const portfolioTextsSpanish: PortfolioType[] = [
         detail: [
           {
             idDD : 0,
+            name : 'Proyecto Tienda Virtual',
+            named: 'react js, next js, stripe, mongodb, tailwind',
+            time : 'https://ecommerce-next-js-opal.vercel.app'
+          },
+          {
+            idDD : 1,
             name : 'Emulador Terminal',
             named: 'C',
             time : 'https://github.com/01Eddie/simple_shell.git'
           },
           {
-            idDD : 1,
+            idDD : 2,
             name : 'AirBnb clone',
             named: 'python, html, css',
             time : 'https://github.com/01Eddie/AirBnB_clone_v3.git'
           },
           {
-            idDD : 2,
+            idDD : 3,
             name : 'NotiNews',
             named: 'php, html, css',
             time : 'https://github.com/01Eddie/PHP_Notinews.git'
           },
           {
-            idDD : 3,
+            idDD : 4,
             name : 'Checker challenge(Bot para discord)',
             named: 'python',
             time : 'https://github.com/AlexisCORAN/Checker_Challenge'
